@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoffeeShopDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CoffeeShopDB.dbo.Items' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ItemName" />
+      <PropertyRef Name="ItemDescription" />
+      <PropertyRef Name="ItemQuantity" />
+      <PropertyRef Name="ItemPrice" />
+    </Key>
+    <Property Name="ItemName" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ItemQuantity" Type="int" Nullable="false" />
+    <Property Name="ItemPrice" Type="money" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CoffeeShopDB.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="State" />
+      <PropertyRef Name="DateOfBirth" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="PhoneNumber" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="FirstName" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="LastName" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="City" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="State" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CoffeeShopDBModelStoreContainer">
+    <EntitySet Name="Items" EntityType="Self.Items" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Items].[ItemName] AS [ItemName], 
+    [Items].[ItemDescription] AS [ItemDescription], 
+    [Items].[ItemQuantity] AS [ItemQuantity], 
+    [Items].[ItemPrice] AS [ItemPrice]
+    FROM [dbo].[Items] AS [Items]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Users].[FirstName] AS [FirstName], 
+    [Users].[LastName] AS [LastName], 
+    [Users].[City] AS [City], 
+    [Users].[State] AS [State], 
+    [Users].[DateOfBirth] AS [DateOfBirth], 
+    [Users].[Email] AS [Email], 
+    [Users].[PhoneNumber] AS [PhoneNumber], 
+    [Users].[Password] AS [Password]
+    FROM [dbo].[Users] AS [Users]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

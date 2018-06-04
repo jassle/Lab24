@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Welcome to GC Coffee</h1><br/>
+<a href="/Home/Register">Register</a>
+<br />
+
+<form action="/Home/SearchByItemName" method="get">
+    Item: <input type="text" name="itemname" /><br />
+    <input type="submit" value="Search" />
+
+</form>
+<br />
+
+<div class="panel-collapse">
+    <div class="panel-primary">
+
+    @foreach (var c in ViewBag.ItemList)
+    {   <div class="col-md-3 col-xs-2">
+
+        <h4>@c.ItemName</h4>
+        <h4>$@c.ItemPrice.ToString("0.00")</h4>
+        <a href="/Home/ShowItemDetails?ItemName=@c.ItemName">Details</a>
+        </div>
+    }
+    </div>
+</div>

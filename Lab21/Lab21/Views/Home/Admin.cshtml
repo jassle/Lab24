@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Administration Page</h2>
+
+<table class="table">
+    @foreach (var c in ViewBag.ItemList)
+    {
+    <tr>
+        <td>@c.ItemName</td>
+        <td>@c.ItemDescription</td>
+        <td>@c.ItemQuantity</td>
+        <td>@c.ItemPrice.ToString("0.00")</td>
+        <td>
+            <a href="/Home/DeleteItem?ItemName=@c.ItemName"onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">
+            <span class="glyphicon glyphicon-trash"></span>Delete</a>
+        </td>
+        <td><a href="/Home/EditItem?ItemName=@c.ItemName">Edit</a></td> 
+    </tr>
+    }
+</table>
+
+<br/><br/><br/>
+
+          <td><a href="/Home/AddItem">Add a new Item</a></td>

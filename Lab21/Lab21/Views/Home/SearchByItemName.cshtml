@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "SearchByItemName";
+}
+
+<h2>SearchByItemName</h2>
+
+<div class="panel-collapse">
+    <div class="panel-primary">
+
+        @foreach (var c in ViewBag.ItemList)
+        {<div class="col-md-3 col-xs-2">
+
+                <h4>@c.ItemName</h4>
+                <h4>$@c.ItemPrice.ToString("0.00")</h4>
+                <a href="/Home/ShowItemDetails?ItemName=@c.ItemName">Details</a>
+            </div>
+        }
+    </div>
+</div>
+
